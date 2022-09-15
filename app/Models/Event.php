@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Event extends Model
+{
+    use HasFactory;
+    protected $table = 'events';
+    protected $guarded = ['id'];
+    protected $fillable = [
+        'pasien_id',
+        'tgl_periksa',
+        'desc',
+    ];
+
+    public function pasien()
+    {
+        return $this->belongsTo(Pasien::class);
+    }
+}
